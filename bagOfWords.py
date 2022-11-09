@@ -1,3 +1,15 @@
+'''
+Sua tarefa será  gerar a matriz termo documento, dos documentos recuperados da internet e 
+imprimir esta matriz na tela. Para tanto: 
+a) Considere que todas as listas de sentenças devem ser transformadas em listas de vetores, 
+onde cada item será uma das palavras da sentença. 
+b) Todos  os  vetores  devem  ser  unidos  em  um  corpus  único  formando  uma  lista  de  vetores, 
+onde cada item será um lexema.  
+c) Este único corpus será usado para gerar o vocabulário. 
+d) O  resultado  esperado  será  uma  matriz  termo  documento  criada  a  partir  da  aplicação  da 
+técnica bag of Words em todo o corpus.  
+'''
+
 import requests
 from bs4 import BeautifulSoup
 import spacy
@@ -36,17 +48,17 @@ for url in urls:
   for sentence in page.sents:
     textoCompleto.append(sentence.text)
 
-# Printando o resultado da lista, para checagem.
-print(textoCompleto)
-
 # Definição de uma variável para armazenar o vocabulário.
 vocabulario = set()
 for sentence in textoCompleto:
   for palavra in sentence.split():
-    vocabulario.add(palavra)
+      vocabulario.add(palavra)
 
 vocabulario = sorted(vocabulario)
 bagOfWords = []
+
+print(vocabulario)
+bagOfWords.append(vocabulario)
 
 for sentence in textoCompleto:
   vetor = [0] * len(vocabulario)
